@@ -174,6 +174,11 @@ In `tools/`, run on the Coral:
   384 px – 50 ms, 70 %; **448 px – 65 ms, 80 %**; 512 px – 85 ms, 84 %. People 84–97 %.
 - Not verified yet: how well cats are found at night with this near-infrared camera.
 
+## License
+
+The code in this repository is released under the [MIT License](LICENSE). The turret model itself
+and the CyberBrick firmware belong to their authors and are not part of this repository.
+
 ## Credits
 
 - Turret model and electronics: the "Remote Controlled Water Turret" project on MakerWorld and the
