@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.claude/
+# Anleitung des Herstellers (15 MB, fremdes Material) bleibt lokal
+Water_Turret_Assembly_Instructions.pdf
+# Herstellerfirmware und Geräteprotokolle des Core bleiben lokal
+core_backup/

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Water Turret</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Water Turret</h1>
+  <div class="chips">
+    <span class="chip" id="c-conn">Connection</span>
+    <span class="chip" id="c-cam">Camera</span>
+    <span class="chip" id="c-core">Core</span>
+    <span class="chip" id="c-rc">Remote</span>
+    <span class="chip" id="c-armed">Safe</span>
+  </div>
+</header>
+
+<main>
+  <section class="left">
+    <div class="video">
+      <canvas id="view" width="640" height="480" title="Double-click: set the aim point (where the jet hits) here"></canvas>
+      <div class="badge" id="badge"></div>
+    </div>
+    <div class="stats" id="stats"></div>
+
+    <div class="panel controls">
+      <div class="modes" id="modes">
+        <button data-target="off">Off</button>
+        <button data-target="cat">Cat</button>
+        <button data-target="person">Person</button>
+      </div>
+
+      <div class="pad">
+        <button data-dir="0,-1" class="up" aria-label="up">▲</button>
+        <button data-dir="-1,0" class="lf" aria-label="left">◀</button>
+        <button id="home" class="mid" title="Tilt to home position">⌂</button>
+        <button data-dir="1,0" class="rt" aria-label="right">▶</button>
+        <button data-dir="0,1" class="dn" aria-label="down">▼</button>
+      </div>
+
+      <div class="actions">
+        <button id="stop" class="danger">STOP</button>
+        <label class="switch"><input type="checkbox" id="arm"><span>Armed</span></label>
+        <button id="fire" disabled>Fire</button>
+        <button id="zero" title="Use the current heading as the centre of the pan range">Set pan centre</button>
+      </div>
+      <p class="hint">Hold the arrow keys or WASD to move. The turret only fires while "Armed" is on.</p>
+
+      <div class="trig">
+        <label>Test trigger servo <output id="trig-val">–</output>°</label>
+        <input type="range" id="trig" min="0" max="180" step="1" value="90">
+        <p class="hint">While not armed the servo only moves between "safe" and "armed, waiting" – it never fires.</p>
+      </div>
+    </div>
+
+    <div class="panel"><h2>Messages</h2><pre id="log"></pre></div>
+  </section>
+
+  <section class="right" id="settings"></section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

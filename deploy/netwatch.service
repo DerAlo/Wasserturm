@@ -1,0 +1,11 @@
+[Unit]
+Description=WLAN-Waechter (verbindet neu, wenn der Router nicht mehr antwortet)
+After=network.target
+
+[Service]
+ExecStart=/bin/bash /home/mendel/turret/tools/netwatch.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

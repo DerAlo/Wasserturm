@@ -1,0 +1,3 @@
+#!/bin/sh
+# mpremote zum Core, ohne Soft-Reset (resume) – boot.py blockiert sonst die Raw-REPL
+exec "$HOME/.local/bin/mpremote" connect /dev/ttyACM0 resume "$@"

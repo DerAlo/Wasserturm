@@ -1,0 +1,20 @@
+[Unit]
+Description=Wasserturm (Erkennung, Regelung, Web-UI auf Port 8080)
+After=network.target usb-host-role.service
+Wants=usb-host-role.service
+StartLimitIntervalSec=0
+
+[Service]
+User=mendel
+WorkingDirectory=/home/mendel/turret
+ExecStart=/usr/bin/python3 -u /home/mendel/turret/app/main.py
+Restart=always
+RestartSec=3
+# Die App meldet sich alle 5 s (sd_notify); bleibt das aus, startet systemd sie neu.
+WatchdogSec=60
+NotifyAccess=main
+# Port 80 zusätzlich zu 8080
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target

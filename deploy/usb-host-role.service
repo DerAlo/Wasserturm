@@ -1,0 +1,11 @@
+[Unit]
+Description=USB-C-OTG-Port als Host (CyberBrick Core nimmt sonst keine Daten an)
+After=sysinit.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'for i in 1 2 3 4 5 6 7 8 9 10; do echo host > /sys/class/typec/port0/data_role && exit 0; sleep 2; done; exit 1'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
